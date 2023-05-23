@@ -24,4 +24,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-![View WinData](src/assets/data.PNG)
+<img width="1440" alt="data" src="https://github.com/prakash855/manufac/assets/56213227/2802e80d-9e13-4162-9f56-45453b3dc528">
