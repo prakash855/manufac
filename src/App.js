@@ -1,25 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  alcoholClasses,
+  flavanoidsByAlcoholClass,
+  gammaTypeOfAlcohol,
+  calculateMean,
+  calculateMedian,
+  calculateMode,
+} from "./utility";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="tables">
+      <div className="data">
+        <table>
+          <thead>
+            <tr>
+              <th>Measures</th>
+              {alcoholClasses.map((item) => (
+                <th>Class {item}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Flavanoids Mean</th>
+              {flavanoidsByAlcoholClass.map((item) => (
+                <td>{calculateMean(item)}</td>
+              ))}
+            </tr>
+            <tr>
+              <th>Flavanoids Median</th>
+              {flavanoidsByAlcoholClass.map((item) => (
+                <td>{calculateMedian(item)}</td>
+              ))}
+            </tr>
+            <tr>
+              <th>Flavanoids Mode</th>
+              {flavanoidsByAlcoholClass.map((item) => (
+                <td>{calculateMode(item)}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="data">
+        <table>
+          <thead>
+            <tr>
+              <th>Measures</th>
+              {alcoholClasses.map((item) => (
+                <th>Class {item}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Gamma Mean</th>
+              {gammaTypeOfAlcohol.map((item) => (
+                <td>{calculateMean(item)}</td>
+              ))}
+            </tr>
+            <tr>
+              <th>Gamma Median</th>
+              {gammaTypeOfAlcohol.map((item) => (
+                <td>{calculateMedian(item)}</td>
+              ))}
+            </tr>
+            <tr>
+              <th>Gamma Mode</th>
+              {gammaTypeOfAlcohol.map((item) => (
+                <td>{calculateMode(item)}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
