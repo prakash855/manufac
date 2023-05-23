@@ -24,4 +24,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-![wineData ss](src/assets/data.PNG)
+![View WinData](src/assets/data.png)
