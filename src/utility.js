@@ -1,7 +1,8 @@
 import data from "./data.json";
 
 const alcoholClasses = [];
-export const wineData = Object.values(
+// seprate data on basis of alcohol
+export const alcoholData = Object.values(
   data.products.reduce((acc, cur) => {
     const { Alcohol } = cur;
     if (!acc[Alcohol]) {
@@ -15,13 +16,14 @@ export const wineData = Object.values(
 
 export { alcoholClasses };
 
+// Array travarsal
 const flavanoidsByAlcoholClass = [];
 export const gammaTypeOfAlcohol = [];
-for (let i = 0; i < wineData.length; i++) {
-  const WineDataSet = wineData[i];
+for (let i = 0; i < alcoholData.length; i++) {
+  const alcoholDataSet = alcoholData[i];
   const AlcoholFlavanoids = [];
   const AlcoholGamma = [];
-  WineDataSet.forEach((item) => {
+  alcoholDataSet.forEach((item) => {
     AlcoholFlavanoids.push(item.Flavanoids);
     let Gamma = (item.Ash * item.Hue) / item.Magnesium;
     AlcoholGamma.push(Gamma);
@@ -32,12 +34,14 @@ for (let i = 0; i < wineData.length; i++) {
 
 export { flavanoidsByAlcoholClass };
 
+// utility method to calculate Mean
 export const calculateMean = (item) => {
   const sum = item.reduce((acc, cur) => acc + cur);
   const mean = sum / item.length;
   return mean.toFixed(3);
 };
 
+// utility method to calculate Median
 export const calculateMedian = (item) => {
   const sorted = item.sort((a, b) => a - b);
   const mid = Math.floor(sorted.length / 2);
@@ -46,6 +50,7 @@ export const calculateMedian = (item) => {
     : sorted[mid].toFixed(3);
 };
 
+// utility method to calculate Mode
 export const calculateMode = (item) => {
   let mode = 0;
   let maxCount = 0;
